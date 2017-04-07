@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appNoServer">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Viewport declaration to control rendering for mobile devices and retainer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title of the page -->
+    <title>= Jake = | Dev Mountain | No Server Project</title>
+    <!-- Include: Complied SCSS  -->
+    <link rel="stylesheet" href="./dist/styles.bcc8ec06.css"/>
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+    <!-- For iPhone 4 Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/apple-touch-icon-114x114-precomposed.png">
+    <!-- For iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/apple-touch-icon-72x72-precomposed.png">
+    <!-- For iPhone: -->
+    <link rel="apple-touch-icon-precomposed" href="./img/apple-touch-icon-57x57-precomposed.png">
+  </head>
+  <!-- Start: Body and contents within -->
+  <body ng-controller="mainCtrl">
+
+
+    <!-- HEADER -->
+    <header-directive></header-directive>
+
+    <!-- MAIN CURRENT WEATHER SECTION -->
+    <current-data-directive></current-data-directive>
+    <!-- Displays weather in current location -->
+    <!-- Displays time (maybe date, too) in current location -->
+    <!-- Allows user to search other locations and updates display -->
+
+    <!-- ^ APIs to hit:
+    e.g.: http://openweathermap.org/api
+    e.g.: https://momentjs.com
+    e.g.: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+          Icon font:
+    e.g.: http://www.alessioatzeni.com/meteocons/
+    e.g.: https://erikflowers.github.io/weather-icons/
+    -->
+
+    <!-- 5 DAY WEATHER FORCAST -->
+    <!-- ^ Shows current/searched data forcast according to ^ -->
+    <!-- FOOTER -->
+    <footer-directive></footer-directive>
+    <!-- Powered by: links | (c){{dynamic year}}  -->
+
+    <!-- Start: Angular CDN and JS bundle -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="./dist/js/bundle.js"></script>
+  <!-- End: Body and contents within -->
+  </body>
+</html>

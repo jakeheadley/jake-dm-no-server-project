@@ -1,0 +1,168 @@
+/* ======== Font include at top of reset to make compilled CSS happy =========== */
+@import url("https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis");
+/* ============================================================================= */
+/* ======================== Start: Style resets ================================ */
+/* ============================================================================= */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Box sizing */
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* ============================================================================= */
+/* ========================= End: Style resets ================================= */
+/* ============================================================================= */
+
+body {
+  background: #e3eae8;
+  font-family: "Dosis", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Baloo Chettan", cursive; }
+
+h1 {
+  font-size: 3vw; }
+
+.header {
+  width: 100%;
+  border-bottom: 1px #FFF solid;
+  background: #34344E; }
+
+.header-inner,
+.footer-inner {
+  max-width: 1200px;
+  height: 100px;
+  padding-top: 30px;
+  margin: 0 auto;
+  background: url("../img/logo.svg") no-repeat center right;
+  background-size: 50px;
+  color: #FFF; }
+
+.current-main-container {
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  display: flex; }
+
+.current-main-container-form {
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0; }
+
+.current-data-form {
+  padding: 20px 0; }
+  .current-data-form input {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px; }
+
+.current-main-temp {
+  font-size: 10em;
+  font-weight: 300; }
+
+.current-main-location {
+  font-size: 4em;
+  font-weight: 300; }
+
+.current-main-description {
+  font-size: 2em;
+  margin: 5px 0; }
+
+.current-data-icon {
+  height: 1vh; }
+
+.weather-icon {
+  width: 100px;
+  height: auto; }
+
+.footer {
+  width: 100%;
+  border-top: 2px #FFF solid;
+  height: 100px;
+  background: #34344E; }
+
+/* === Break point: max-width : 1200px ======================================= */
+@media only screen and (max-width: 1200px) {
+  body {
+    background: #CBDAD5;
+    color: #34344E; } }
+
+/* === End Break point: max-width : 1200px =================================== */
+/* === Break point: max-width : 979px ======================================== */
+@media only screen and (max-width: 979px) {
+  body {
+    background: #89A7B1; } }
+
+/* === End: Break point: max-width : 979px =================================== */
+/* === Break point: max-width : 767px ======================================== */
+@media only screen and (max-width: 767px) {
+  body {
+    background: #566981; } }
+
+/* === End: Break point: max-width : 767px =================================== */
+/* === Break point: max-width : 480px ======================================== */
+@media only screen and (max-width: 480px) {
+  body {
+    background: #3A415A; } }
+
+/* === End: Break point: max-width : 480px =================================== */
+/* === Break point: max-width : 320px ======================================== */
+@media only screen and (max-width: 320px) {
+  body {
+    background: #34344E; } }
+
+/* === End: Break point: max-width : 320px =================================== */
+
+/*# sourceMappingURL=maps/styles.css.map */
