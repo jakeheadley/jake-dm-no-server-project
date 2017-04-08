@@ -63,11 +63,9 @@ html {
 /* ============================================================================= */
 
 body {
-  background: #e3eae8;
+  background: #141E30;
   font-family: "Open Sans", sans-serif;
   fill: currentColor;
-  background: #141E30;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #243B55, #141E30);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #243B55, #141E30);
@@ -107,6 +105,11 @@ h1 {
   display: flex;
   flex-direction: column; }
 
+.five-day-flex {
+  width: 230px;
+  padding-top: 20px;
+  border: 1px solid #FFF; }
+
 .current-main-container2 {
   max-width: 80%;
   height: auto;
@@ -132,26 +135,20 @@ h1 {
   font-weight: 300; }
 
 .current-main-location {
-  font-size: 4em;
+  font-size: 5em;
   font-weight: 300;
   margin-bottom: 10px;
-  padding: 20px 10px 30px 10px;
-  border: 1px black solid; }
+  padding: 20px 10px 30px 10px; }
 
 .current-main-description {
   font-size: 2em;
-  margin: 5px 0; }
-
-.current-main-icon {
-  width: 85px;
-  height: 19vh;
-  padding: 10px;
-  border: 1px orange solid; }
+  margin: 5px 0;
+  font-weight: 300; }
 
 .weather-icon {
-  width: 60px;
+  width: 90px;
   height: auto;
-  fill: currentColor; }
+  padding: 10px; }
 
 .footer {
   width: 100%;
@@ -172,8 +169,10 @@ h1 {
 /* === Break point: max-width : 1200px ======================================= */
 @media only screen and (max-width: 1200px) {
   body {
-    background: #CBDAD5;
-    color: #34344E; } }
+    background: #CBDAD5; }
+  .five-day-flex {
+    width: 299px;
+    border: 1px solid black; } }
 
 /* === End Break point: max-width : 1200px =================================== */
 /* === Break point: max-width : 979px ======================================== */
@@ -191,7 +190,12 @@ h1 {
 /* === Break point: max-width : 767px ======================================== */
 @media only screen and (max-width: 767px) {
   body {
-    background: #566981; } }
+    background: #566981; }
+  .five-day-flex {
+    width: 610px;
+    border: 1px solid red; }
+  .footer {
+    position: relative; } }
 
 /* === End: Break point: max-width : 767px =================================== */
 /* === Break point: max-width : 480px ======================================== */
@@ -203,9 +207,7 @@ h1 {
     background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #182848, #4b6cb7);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
-  .footer {
-    position: relative; } }
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ } }
 
 /* === End: Break point: max-width : 480px =================================== */
 /* === Break point: max-width : 320px ======================================== */

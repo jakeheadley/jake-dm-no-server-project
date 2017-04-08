@@ -1,6 +1,6 @@
 // @import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis');
 
-$bodyBackground: #e3eae8;
+$bodyBackground: #141E30;
 $displayFont: 'Open Sans', sans-serif;
 $bodyFont: 'Open Sans', sans-serif;
 $textColor: #FFF;
@@ -9,12 +9,10 @@ body {
   background: $bodyBackground;
   font-family: $bodyFont; fill: currentColor;
 
-  background: #141E30;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: $textColor;
-
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: $displayFont; font-weight: 300; }
@@ -51,6 +49,13 @@ h1 { font-size: 2.5em; }
   flex-direction: column;
 }
 
+// Containers for each day of five
+.five-day-flex {
+  width: 230px;
+  padding-top: 20px;
+  border: 1px solid #FFF;
+}
+
 .current-main-container2 {
   max-width: 80%;
   height: auto;
@@ -83,38 +88,35 @@ h1 { font-size: 2.5em; }
 }
 
 .current-main-location {
-  font-size: 4em;
+  font-size: 5em;
   font-weight: 300;
   margin-bottom: 10px;
   padding: 20px 10px 30px 10px;
 
-  border: 1px black solid;
+  //border: 1px black solid;
 }
 
 .current-main-description {
   font-size: 2em;
   margin: 5px 0;
+  font-weight: 300;
 }
 
 .current-main-icon {
-  width: 85px;
-  height: 19vh;
-  padding: 10px;
-
-  border: 1px orange solid;
+  // padding: 10px;
 
 }
 .weather-icon {
-  width: 60px;
+  width: 90px;
   height: auto;
-  fill: currentColor;
+  padding: 10px;
+
 }
 
 .footer {
   width: 100%;
   border-top: 1px #ACACAC solid;
   height: 100px;
-  //background: #34344E;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -132,7 +134,9 @@ h1 { font-size: 2.5em; }
 /* === Break point: max-width : 1200px ======================================= */
 @media only screen and (max-width : 1200px) {
 
-  body { background: #CBDAD5; color: #34344E; }
+  body { background: #CBDAD5; }
+
+  .five-day-flex { width: 299px; border: 1px solid black; }
 
 }
 /* === End Break point: max-width : 1200px =================================== */
@@ -154,6 +158,10 @@ h1 { font-size: 2.5em; }
 
   body { background: #566981; }
 
+  .five-day-flex { width: 610px; border: 1px solid red; }
+
+  .footer { position: relative;}
+
 }
 /* === End: Break point: max-width : 767px =================================== */
 /* === Break point: max-width : 480px ======================================== */
@@ -166,8 +174,6 @@ h1 { font-size: 2.5em; }
     background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
    }
-
-   .footer { position: relative;}
 
 }
 /* === End: Break point: max-width : 480px =================================== */

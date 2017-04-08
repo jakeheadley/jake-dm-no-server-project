@@ -3,19 +3,21 @@
     {{temp}}
   </div>
   <div class="current-main-flex-box">
-    <div class="current-main-icon">
-      <img ng-src="{{icon}}" class="weather-icon">
-    </div>
     <div class="current-main-location">
       {{weather.name}}
     </div>
   </div>
   <div class="current-main-flex-box">
     <div class="current-main-description">
-      {{weather.weather[0].description}}
+      conditions: {{weather.weather[0].description}}
     </div>
     <div class="current-main-description">
       {{speed}}
+    </div>
+  </div>
+  <div class="current-main-flex-box">
+    <div class="current-main-icon">
+      <img ng-src="{{icon}}" class="weather-icon">
     </div>
   </div>
 </div>
