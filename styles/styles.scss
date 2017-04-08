@@ -1,14 +1,25 @@
 // @import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis');
 
 $bodyBackground: #e3eae8;
-$displayFont: 'Baloo Chettan', cursive;
-$bodyFont: 'Dosis', sans-serif;
+$displayFont: 'Open Sans', sans-serif;
+$bodyFont: 'Open Sans', sans-serif;
+$textColor: #FFF;
 
-body { background: $bodyBackground; font-family: $bodyFont }
+body {
+  background: $bodyBackground;
+  font-family: $bodyFont; fill: currentColor;
 
-h1, h2, h3, h4, h5, h6 { font-family: $displayFont }
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-h1 { font-size: 3vw; }
+  color: $textColor;
+
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: $displayFont; font-weight: 300; }
+
+h1 { font-size: 2.5em; }
 
 .header {
   width: 100%;
@@ -16,15 +27,14 @@ h1 { font-size: 3vw; }
   background: #34344E;
 }
 
-.header-inner,
-.footer-inner {
+.header-inner {
   max-width: 1200px;
   height: 100px;
   padding-top: 30px;
   margin: 0 auto;
   background: url('../img/logo.svg') no-repeat center right;
   background-size: 50px;
-  color: #FFF;
+  color: $textColor;
 }
 
 .current-main-container {
@@ -33,7 +43,19 @@ h1 { font-size: 3vw; }
   margin: 0 auto;
   padding: 0;
   display: flex;
-  // justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.current-main-flex-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-main-container2 {
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .current-main-container-form {
@@ -57,38 +79,55 @@ h1 { font-size: 3vw; }
 .current-main-temp {
   font-size: 10em;
   font-weight: 300;
-  // justify-content: space-around;
+
 }
 
 .current-main-location {
   font-size: 4em;
   font-weight: 300;
-  // justify-content: space-around;
+  margin-bottom: 10px;
+  padding: 20px 10px 30px 10px;
+
+  border: 1px black solid;
 }
 
 .current-main-description {
   font-size: 2em;
   margin: 5px 0;
-  // justify-content: space-around;
 }
 
-.current-data-icon {
-  height: 1vh;
+.current-main-icon {
+  width: 85px;
+  height: 19vh;
+  padding: 10px;
+
+  border: 1px orange solid;
 
 }
 .weather-icon {
-  width: 100px;
+  width: 60px;
   height: auto;
+  fill: currentColor;
 }
 
 .footer {
   width: 100%;
-  border-top: 2px #FFF solid;
+  border-top: 1px #ACACAC solid;
   height: 100px;
-  background: #34344E;
-
+  //background: #34344E;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
+.footer-inner {
+  max-width: 1200px;
+  height: 100px;
+  padding-top: 40px;
+  margin: 0 auto;
+  color: $textColor;
+}
 
 /* === Break point: max-width : 1200px ======================================= */
 @media only screen and (max-width : 1200px) {
@@ -100,7 +139,13 @@ h1 { font-size: 3vw; }
 /* === Break point: max-width : 979px ======================================== */
 @media only screen and (max-width : 979px) {
 
-  body { background: #89A7B1; }
+  body { background: #89A7B1;
+
+    background: #348F50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #56B4D3, #348F50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #56B4D3, #348F50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
 
 }
 /* === End: Break point: max-width : 979px =================================== */
@@ -114,7 +159,15 @@ h1 { font-size: 3vw; }
 /* === Break point: max-width : 480px ======================================== */
 @media only screen and (max-width : 480px) {
 
-  body { background: #3A415A; }
+  body { background: #3A415A;
+
+    background: #4b6cb7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+   }
+
+   .footer { position: relative;}
 
 }
 /* === End: Break point: max-width : 480px =================================== */

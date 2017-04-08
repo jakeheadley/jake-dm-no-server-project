@@ -8,16 +8,17 @@ var AA = angular.module('appNoServer', []);
 // Start: This is the main controller ==========================================
 AA.controller('mainCtrl', function ($scope, weatherService) {
 
-  // Initial app function test:
-  //$scope.message = "bOOya!! The app is working.";
+  $scope.getCurrentWeather = function () {
+    var promise = weatherService.getCurrentWeather();
+    return promise.then(function (response) {
+      return $scope.getWeather(response);
+    });
+  }();
+
   $scope.getWeather = function (city) {
-    //console.log('ctrl function fired');
     return weatherService.getWeather(city).then(function (response) {
-      //console.log(response);
-      //console.log('made it back into crtl');
       $scope.weather = response;
-      //console.log('made it past crtl');
-      $scope.temp = (response.main.temp * (9 / 5) - 459.67).toFixed(1) + '°f';
+      $scope.temp = (response.main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
       $scope.speed = 'wind:' + response.wind.speed + 'mph';
 
       $scope.icon = response.weather[0].description;
@@ -86,23 +87,16 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
 // End: This is the main controller ============================================
 'use strict';
 
-// Start: This is the Weather Service ==========================================
-AA.service('weatherService', function ($http) {
+// Start: This is the current data directive ===================================
+AA.directive('currentDataDirective', function () {
 
-  // $http = 'http://ip-api.com/json';
-  var baseUrl2 = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  var apiKey = 'c54910d1ae4d8e9e7e5bbda457d4ba22';
-
-  this.getWeather = function (city) {
-    console.log('at service');
-    return $http.get(baseUrl2 + city + "&appid=" + apiKey).then(function (response) {
-      console.log('got responce');
-      console.log(response.data);
-      return response.data;
-    });
+  return {
+    restrict: 'E',
+    templateUrl: './../views/current-data.html',
+    controller: 'mainCtrl'
   };
 });
-// End: This is the Weather Service ============================================
+// End: This is the current data directive =====================================
 'use strict';
 
 // Start: This is the footer directive =========================================
@@ -127,4 +121,27 @@ AA.directive('headerDirective', function () {
   };
 });
 // End: This is the header directive ===========================================
+'use strict';
+
+// Start: This is the Weather Service ==========================================
+AA.service('weatherService', function ($http) {
+
+  var baseUrl2 = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  var apiKey = 'c54910d1ae4d8e9e7e5bbda457d4ba22';
+
+  this.getCurrentWeather = function () {
+    return $http.get('http://ip-api.com/json').then(function (response) {
+      return response.data.city;
+    });
+  };
+  this.getWeather = function (city) {
+    console.log('at service');
+    return $http.get(baseUrl2 + city + "&appid=" + apiKey).then(function (response) {
+      console.log('got responce');
+      console.log(response.data);
+      return response.data;
+    });
+  };
+});
+// End: This is the Weather Service ============================================
 //# sourceMappingURL=bundle.js.map

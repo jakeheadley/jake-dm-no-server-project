@@ -1,28 +1,26 @@
-<!-- <form ng-submit="getWeather(city)">
-  <input ng-model="city" class="weather-search">
-</form> -->
-
 <div class="current-main-container">
   <div class="current-main-temp">
     {{temp}}
   </div>
-  <div class="current-main-location">
-    {{weather.name}}
+  <div class="current-main-flex-box">
+    <div class="current-main-icon">
+      <img ng-src="{{icon}}" class="weather-icon">
+    </div>
+    <div class="current-main-location">
+      {{weather.name}}
+    </div>
   </div>
-  <hr>
+  <div class="current-main-flex-box">
+    <div class="current-main-description">
+      {{weather.weather[0].description}}
+    </div>
+    <div class="current-main-description">
+      {{speed}}
+    </div>
+  </div>
 </div>
 
-<div class="current-main-container">
-  <div class="current-main-icon">
-    <img ng-src="{{icon}}" class="weather-icon">
-  </div>
-  <div class="current-main-description">
-    {{weather.weather[0].description}}
-    {{speed}}
-  </div>
-</div>
-
-<div class="current-main-container">
+<div class="current-main-container2">
   <form ng-submit="getWeather(city)" class="current-data-form">
     <input ng-model="city" class="weather-search" placeholder="Search a city to see the weather there...">
   </form>

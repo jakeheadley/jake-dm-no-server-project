@@ -1,17 +1,19 @@
 // Start: This is the main controller ==========================================
-AA.controller('mainCtrl', function($scope, weatherService){
+AA.controller('mainCtrl', function ($scope, weatherService) {
 
-  // Initial app function test:
-  //$scope.message = "bOOya!! The app is working.";
-  $scope.getWeather = function(city){
-    //console.log('ctrl function fired');
-    return weatherService.getWeather(city).then(function(response){
-      //console.log(response);
-      //console.log('made it back into crtl');
+  $scope.getCurrentWeather = (function(){
+    var promise = weatherService.getCurrentWeather();
+    return promise.then(function (response)
+    {
+      return $scope.getWeather(response)
+    });
+  })();
+
+  $scope.getWeather = function (city) {
+    return weatherService.getWeather(city).then(function (response) {
       $scope.weather = response;
-      //console.log('made it past crtl');
-      $scope.temp = (response.main.temp * (9/5) - 459.67).toFixed(1) + '°f';
-      $scope.speed = 'wind:' + (response.wind.speed) + 'mph';
+      $scope.temp = (response.main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
+      $scope.speed = 'wind:' + response.wind.speed + 'mph';
 
       $scope.icon = response.weather[0].description;
 
@@ -74,7 +76,6 @@ AA.controller('mainCtrl', function($scope, weatherService){
           $scope.icon = '../img/default.svg';
       }
     });
-  }
-
+  };
 });
 // End: This is the main controller ============================================
