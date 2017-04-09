@@ -17,22 +17,33 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-family: $displayFont; font-weight: 300; }
 
-h1 { font-size: 2.5em; }
+h1 { font-size: 2em; }
 
 .header {
   width: 100%;
   border-bottom: 1px #FFF solid;
-  background: #34344E;
+  background: url('../img/weather-hero.jpg')no-repeat center center;
+  object-fit: fill;
 }
 
 .header-inner {
-  max-width: 1200px;
   height: 100px;
   padding-top: 30px;
   margin: 0 auto;
-  background: url('../img/logo.svg') no-repeat center right;
-  background-size: 50px;
   color: $textColor;
+}
+
+.logo-type {
+  position: absolute;
+  top: 33px;
+  left: 10%;
+}
+
+.logo {
+  width: 50px;
+  position: absolute;
+  top: 25px;
+  right: 10%;
 }
 
 .current-main-container {
@@ -51,9 +62,16 @@ h1 { font-size: 2.5em; }
 
 // Containers for each day of five
 .five-day-flex {
-  width: 230px;
-  padding-top: 20px;
+  width: 221px;
+  padding: 20px;
   border: 1px solid #FFF;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &:nth-child(5) {
+    margin-right: 0;
+  }
 }
 
 .current-main-container2 {
@@ -75,42 +93,39 @@ h1 { font-size: 2.5em; }
 
   input {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 1.5vw;
   }
 }
 
 .current-main-temp {
   font-size: 10em;
   font-weight: 300;
-
 }
 
 .current-main-location {
   font-size: 5em;
   font-weight: 300;
-  margin-bottom: 10px;
-  padding: 20px 10px 30px 10px;
-
-  //border: 1px black solid;
+  padding: 73px 10px 0px 10px;
 }
 
 .current-main-description {
   font-size: 2em;
-  margin: 5px 0;
   font-weight: 300;
 }
 
-.current-main-icon {
-  // padding: 10px;
-
+.description-control {
+  padding: 84px 0 0 10px;
 }
-.weather-icon {
-  width: 90px;
-  height: auto;
-  padding: 10px;
 
+.current-main-icon {
+  padding: 25px 0 30px 20px;
+}
+
+.weather-icon {
+  width: 100px;
+  height: auto;
 }
 
 .footer {
@@ -124,63 +139,55 @@ h1 { font-size: 2.5em; }
 }
 
 .footer-inner {
-  max-width: 1200px;
   height: 100px;
   padding-top: 40px;
   margin: 0 auto;
   color: $textColor;
 }
 
+.footer-text {
+  position: absolute;
+  left: 10%;
+}
+
 /* === Break point: max-width : 1200px ======================================= */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1236px) {
 
-  body { background: #CBDAD5; }
+  .description-control { padding: 5px 10px; }
 
-  .five-day-flex { width: 299px; border: 1px solid black; }
+  .current-main-icon { padding: 10px 10px; }
+
+  .five-day-flex { width: 299px; }
 
 }
 /* === End Break point: max-width : 1200px =================================== */
-/* === Break point: max-width : 979px ======================================== */
-@media only screen and (max-width : 979px) {
-
-  body { background: #89A7B1;
-
-    background: #348F50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #56B4D3, #348F50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #56B4D3, #348F50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  }
-
-}
-/* === End: Break point: max-width : 979px =================================== */
 /* === Break point: max-width : 767px ======================================== */
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : 761px) {
 
-  body { background: #566981; }
+  .current-main-location {  padding: 0 10px 0 0; }
 
-  .five-day-flex { width: 610px; border: 1px solid red; }
+  .five-day-flex { width: 610px; }
 
   .footer { position: relative;}
+
+  .five-day-flex { margin-right: 0;}
 
 }
 /* === End: Break point: max-width : 767px =================================== */
 /* === Break point: max-width : 480px ======================================== */
 @media only screen and (max-width : 480px) {
 
-  body { background: #3A415A;
+   .logo-type { left: 7%; }
 
-    background: #4b6cb7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   .logo { right: 7%; }
 
-   }
+   .current-main-temp { font-size: 8.5em; }
+
+   .current-main-location { font-size: 4em; }
+
+   .current-main-description { font-size: 1.3em; }
+
+   .weather-icon { width: 90px; }
 
 }
 /* === End: Break point: max-width : 480px =================================== */
-/* === Break point: max-width : 320px ======================================== */
-@media only screen and (max-width : 320px) {
-
-  body { background: #34344E; }
-
-}
-/* === End: Break point: max-width : 320px =================================== */
