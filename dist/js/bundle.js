@@ -2,55 +2,13 @@
 
 // Start: This is App JS =======================================================
 var AA = angular.module('appNoServer', []);
+
+// AA.config(function($momentProvider){
+//   $momentProvider
+//     .asyncLoading(false)
+//     .scriptUrl('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js');
+// });
 // End: This is App JS =========================================================
-'use strict';
-
-// Start: This is the current data directive ===================================
-AA.directive('currentDataDirective', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './../views/current-data.html',
-    controller: 'mainCtrl'
-  };
-});
-// End: This is the current data directive =====================================
-'use strict';
-
-// Start: This is the current 5 day directive ==================================
-AA.directive('currentFiveDayDirective', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './../views/current-five-day.html',
-    controller: 'mainCtrl'
-  };
-});
-// End: This is the current 5 day directive ====================================
-'use strict';
-
-// Start: This is the footer directive =========================================
-AA.directive('footerDirective', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './../views/footer.html',
-    controller: 'mainCtrl'
-  };
-});
-// End: This is the footer directive ===========================================
-'use strict';
-
-// Start: This is the header directive =========================================
-AA.directive('headerDirective', function () {
-
-  return {
-    restrict: 'E',
-    templateUrl: './../views/header.html',
-    controller: 'mainCtrl'
-  };
-});
-// End: This is the header directive ===========================================
 'use strict';
 
 // Start: This is the main controller ==========================================
@@ -143,7 +101,20 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
 'use strict';
 
 // Start: This is the main controller ==========================================
+//var moment = require('moment');
+
 AA.controller('mainCtrl', function ($scope, weatherService) {
+
+  // If didn't set asyncLoading angular-momentjs
+  // will assume you provided moment.js
+  // $scope.time = $moment("20111031", "YYYYMMDD").fromNow();
+  //
+  // // If you set asyncLoading to true then angular-momentjs
+  // // will inject the script and return a promise
+  // $moment.then(function(moment) {
+  //   $scope.anotherTime = moment("20111031", "YYYYMMDD").fromNow();
+  //   console.log('moment js', $scope.anotherTime);
+  // })
 
   $scope.getCurrentWeather = function () {
     var promise = weatherService.getCurrentWeather();
@@ -154,11 +125,19 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
 
   $scope.getWeather = function (city) {
     return weatherService.getWeather(city).then(function (response) {
+      console.log(response, "return response");
       $scope.weather = response;
-      $scope.temp = (response.main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
-      $scope.speed = 'wind: ' + response.wind.speed + ' mph';
+      $scope.temp = (response.list[0].main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
+      $scope.speed = 'wind: ' + response.list[0].wind.speed + ' mph';
 
-      $scope.icon = response.weather[0].description;
+      $scope.fiveDays = [];
+      for (var i = 3; i < 43; i += 8) {
+
+        $scope.fiveDays.push(response.list[i]);
+        console.log('These are five days:', $scope.fiveDays);
+      }
+
+      $scope.icon = response.list[0].weather[0].description;
 
       switch ($scope.icon) {
         case 'clear sky':
@@ -226,10 +205,58 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
 // End: This is the main controller ============================================
 'use strict';
 
+// Start: This is the current data directive ===================================
+AA.directive('currentDataDirective', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './../views/current-data.html',
+    controller: 'mainCtrl'
+  };
+});
+// End: This is the current data directive =====================================
+'use strict';
+
+// Start: This is the current 5 day directive ==================================
+AA.directive('currentFiveDayDirective', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './../views/current-five-day.html',
+    controller: 'mainCtrl'
+  };
+});
+// End: This is the current 5 day directive ====================================
+'use strict';
+
+// Start: This is the footer directive =========================================
+AA.directive('footerDirective', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './../views/footer.html',
+    controller: 'mainCtrl'
+  };
+});
+// End: This is the footer directive ===========================================
+'use strict';
+
+// Start: This is the header directive =========================================
+AA.directive('headerDirective', function () {
+
+  return {
+    restrict: 'E',
+    templateUrl: './../views/header.html',
+    controller: 'mainCtrl'
+  };
+});
+// End: This is the header directive ===========================================
+'use strict';
+
 // Start: This is the Weather Service ==========================================
 AA.service('weatherService', function ($http) {
 
-  var baseUrl2 = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  var baseUrl2 = 'http://api.openweathermap.org/data/2.5/forecast?q=';
   var apiKey = 'c54910d1ae4d8e9e7e5bbda457d4ba22';
 
   this.getCurrentWeather = function () {
@@ -241,7 +268,7 @@ AA.service('weatherService', function ($http) {
     console.log('at service');
     return $http.get(baseUrl2 + city + "&appid=" + apiKey).then(function (response) {
       console.log('got responce');
-      console.log(response.data);
+      //console.log('This is the one:', response.data);
       return response.data;
     });
   };

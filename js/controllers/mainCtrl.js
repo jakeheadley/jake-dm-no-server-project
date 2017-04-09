@@ -1,5 +1,18 @@
 // Start: This is the main controller ==========================================
+//var moment = require('moment');
+
 AA.controller('mainCtrl', function ($scope, weatherService) {
+
+  // If didn't set asyncLoading angular-momentjs
+  // will assume you provided moment.js
+  // $scope.time = $moment("20111031", "YYYYMMDD").fromNow();
+  //
+  // // If you set asyncLoading to true then angular-momentjs
+  // // will inject the script and return a promise
+  // $moment.then(function(moment) {
+  //   $scope.anotherTime = moment("20111031", "YYYYMMDD").fromNow();
+  //   console.log('moment js', $scope.anotherTime);
+  // })
 
   $scope.getCurrentWeather = (function(){
     var promise = weatherService.getCurrentWeather();
@@ -11,11 +24,20 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
 
   $scope.getWeather = function (city) {
     return weatherService.getWeather(city).then(function (response) {
+      console.log(response, "return response");
       $scope.weather = response;
-      $scope.temp = (response.main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
-      $scope.speed = 'wind: ' + response.wind.speed + ' mph';
+      $scope.temp = (response.list[0].main.temp * (9 / 5) - 459.67).toFixed(1) + '°';
+      $scope.speed = 'wind: ' + response.list[0].wind.speed + ' mph';
 
-      $scope.icon = response.weather[0].description;
+
+      $scope.fiveDays = [];
+      for (var i=3; i<43; i+=8){
+
+        $scope.fiveDays.push(response.list[i]);
+        console.log('These are five days:', $scope.fiveDays);
+      }
+
+      $scope.icon = response.list[0].weather[0].description;
 
       switch ($scope.icon) {
         case 'clear sky':

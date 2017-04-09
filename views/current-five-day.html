@@ -1,35 +1,11 @@
 <div class="current-main-container">
-</div>
-<div class="current-main-container">
-  <div class="current-main-flex-box five-day-flex">
+  <div ng-repeat="days in fiveDays" class="current-main-flex-box five-day-flex">
     <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <h3>Here goes the 5 day forecast</h3>
-      <p style="margin-top: 20px; font-size:25px;">Day 1</p>
+      <p>{{days.dt_txt}}</p>
+      <p>{{days.main.temp}} </p>
+      <p>{{days.weather[0].description}}</p>
+      <p>{{days.wind.speed}}</p>
+      <img ng-src="{{days.weather[0].icon}}" class="weather-icon">
     </div>
   </div>
-  <div class="current-main-flex-box five-day-flex">
-    <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <h3>Here goes the 5 day forecast</h3>
-      <p style="margin-top: 20px; font-size:25px;">Day 2</p>
-    </div>
-  </div>
-  <div class="current-main-flex-box five-day-flex">
-    <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <h3>Here goes the 5 day forecast</h3>
-      <p style="margin-top: 20px; font-size:25px;">Day 3</p>
-    </div>
-  </div>
-  <div class="current-main-flex-box five-day-flex">
-    <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <h3>Here goes the 5 day forecast</h3>
-      <p style="margin-top: 20px; font-size:25px;">Day 4</p>
-    </div>
-  </div>
-  <div class="current-main-flex-box five-day-flex">
-    <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <h3>Here goes the 5 day forecast</h3>
-      <p style="margin-top: 20px; font-size:25px;">Day 5</p>
-    </div>
-  </div>
-
 </div>

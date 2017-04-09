@@ -4,12 +4,12 @@
   </div>
   <div class="current-main-flex-box">
     <div class="current-main-location">
-      {{weather.name}}
+      {{weather.city.name}}
     </div>
   </div>
   <div class="current-main-flex-box description-control">
     <div class="current-main-description">
-      conditions: {{weather.weather[0].description}}
+      conditions: {{weather.list[0].weather[0].description}}
     </div>
     <div class="current-main-description">
       {{speed}}
