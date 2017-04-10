@@ -113,44 +113,6 @@ h1 {
   display: flex;
   flex-direction: column; }
 
-.five-day-flex {
-  width: 222px;
-  padding: 20px;
-  border: 1px solid #FFF;
-  border-radius: 3px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  background: #158BAE;
-  background: #0d6a8d;
-  /* Old browsers */
-  background: -moz-linear-gradient(45deg, #0d6a8d 0%, #2989d8 79%, #158bae 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(45deg, #0d6a8d 0%, #2989d8 79%, #158bae 100%);
-  /*
-  background: linear-gradient(45deg, #0d6a8d 0%,#2989d8 79%,#158bae 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d6a8d', endColorstr='#158bae',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */ }
-  .five-day-flex:nth-child(5) {
-    margin-right: 0; }
-
-.current-five-data-box {
-  position: absolute;
-  width: 100%;
-  bottom: 0; }
-  .current-five-data-box h3 {
-    margin-top: 10px; }
-
-.current-five-icon {
-  width: 100%;
-  height: 200px;
-  text-align: center;
-  position: relative; }
-
-.current-five-conditions {
-  font-size: 16px;
-  font-weight: 300;
-  display: block; }
-
 .current-main-container2 {
   max-width: 80%;
   height: auto;
@@ -193,6 +155,46 @@ h1 {
   width: 90px;
   height: auto; }
 
+.five-day-flex {
+  width: 222px;
+  padding: 20px;
+  border: 1px solid #FFF;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: #158BAE;
+  background: #0d6a8d;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #0d6a8d 0%, #2989d8 79%, #158bae 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #0d6a8d 0%, #2989d8 79%, #158bae 100%);
+  /*
+  background: linear-gradient(45deg, #0d6a8d 0%,#2989d8 79%,#158bae 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d6a8d', endColorstr='#158bae',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+  .five-day-flex:nth-child(5) {
+    margin-right: 0; }
+
+.current-five-data-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
+  .current-five-data-box h3 {
+    margin-top: 10px; }
+
+.current-five-icon {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  position: relative; }
+  .current-five-icon .weather-icon {
+    width: 70px; }
+
+.current-five-conditions {
+  font-size: 16px;
+  font-weight: 300;
+  display: block; }
+
 .footer {
   width: 100%;
   border-top: 1px #ACACAC solid;
@@ -226,7 +228,7 @@ h1 {
     width: 100px;
     margin-bottom: 10px; }
   .current-five-data-box h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     display: inline-flex; }
   .current-five-data-box h3 {
     font-size: 2em; }
@@ -240,11 +242,13 @@ h1 {
   .footer {
     position: relative; } }
 
+/* === End: Break point: max-width : 767px =================================== */
+/* === Break point: max-width : 626px ======================================== */
 @media only screen and (max-width: 626px) {
   .current-main-icon {
     padding: 10px 10px; } }
 
-/* === End: Break point: max-width : 767px =================================== */
+/* === End: Break point: max-width : 626px =================================== */
 /* === Break point: max-width : 480px ======================================== */
 @media only screen and (max-width: 480px) {
   .logo-type {
@@ -256,7 +260,9 @@ h1 {
   .current-main-location {
     font-size: 4em; }
   .weather-icon {
-    width: 90px; } }
+    width: 90px; }
+  .current-five-data-box h1 {
+    font-size: 2em; } }
 
 /* === End: Break point: max-width : 480px =================================== */
 

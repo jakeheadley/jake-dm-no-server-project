@@ -260,10 +260,9 @@ AA.service('weatherService', function ($http) {
     });
   };
   this.getWeather = function (city) {
-    console.log('at service');
+    //console.log('at service');
     return $http.get(baseUrl2 + city + "&appid=" + apiKey).then(function (response) {
-      console.log('got responce');
-      //console.log('This is the one:', response.data);
+      //console.log('got responce');
       return response.data;
     });
   };
