@@ -9,11 +9,6 @@ AA.controller('mainCtrl', function ($scope, weatherService) {
     });
   })();
 
-  //$scope.monday
-  //$scope.tuesday
-  //$scope.wednesday
-  
-
   $scope.getWeather = function (city) {
     return weatherService.getWeather(city).then(function (response) {
       $scope.weather = response;

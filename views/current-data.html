@@ -1,23 +1,27 @@
 <div class="current-main-container">
+
   <div class="current-main-temp">
     {{temp}}
   </div>
+
+  <div class="current-main-flex-box">
+    <div class="current-main-icon">
+      <img ng-src="{{fiveDays[0].weather[0].icon}}" class="weather-icon">
+    </div>
+  </div>
+
   <div class="current-main-flex-box">
     <div class="current-main-location">
       {{weather.city.name}}
     </div>
   </div>
-  <div class="current-main-flex-box description-control">
-    <div class="current-main-description">
-      conditions: {{weather.list[0].weather[0].description}}
+
+  <div class="current-main-flex-box current-main-description">
+    <div class="cm-description">
+      {{weather.list[0].weather[0].description}}
     </div>
-    <div class="current-main-description">
+    <div class="cm-wind">
       {{speed}}
-    </div>
-  </div>
-  <div class="current-main-flex-box">
-    <div class="current-main-icon">
-      <img ng-src="{{icon}}" class="weather-icon">
     </div>
   </div>
 </div>

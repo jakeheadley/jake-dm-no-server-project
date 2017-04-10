@@ -10,7 +10,7 @@ body {
   font-family: $bodyFont; fill: currentColor;
 
   background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: $textColor;
 }
@@ -30,19 +30,20 @@ h1 { font-size: 2em; }
   height: 100px;
   padding-top: 30px;
   margin: 0 auto;
-  color: $textColor;
 }
 
 .logo-type {
   position: absolute;
   top: 33px;
   left: 10%;
+  color: $textColor;
+  font-weight: 300;
 }
 
 .logo {
-  width: 50px;
+  width: 130px;
   position: absolute;
-  top: 25px;
+  top: 18px;
   right: 10%;
 }
 
@@ -60,18 +61,46 @@ h1 { font-size: 2em; }
   flex-direction: column;
 }
 
-// Containers for each day of five
+// Containers for each day of five .............................................
 .five-day-flex {
-  width: 221px;
+  width: 222px;
   padding: 20px;
   border: 1px solid #FFF;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-right: 10px;
   margin-bottom: 10px;
+  background: #158BAE;
+
+  background: #0d6a8d; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #0d6a8d 0%, #2989d8 79%, #158bae 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #0d6a8d 0%,#2989d8 79%,#158bae 100%); /*
+  background: linear-gradient(45deg, #0d6a8d 0%,#2989d8 79%,#158bae 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d6a8d', endColorstr='#158bae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   &:nth-child(5) {
     margin-right: 0;
   }
+}
+
+.current-five-data-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  h3 { margin-top: 10px; }
+}
+
+.current-five-icon {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.current-five-conditions {
+  font-size:16px;
+  font-weight:300;
+  display:block;
 }
 
 .current-main-container2 {
@@ -84,7 +113,7 @@ h1 { font-size: 2em; }
 .current-main-container-form {
   max-width: 80%;
   height: auto;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   padding: 0;
 }
 
@@ -94,8 +123,9 @@ h1 { font-size: 2em; }
   input {
     width: 100%;
     padding: 15px;
-    border-radius: 10px;
-    font-size: 1.5vw;
+    border-radius: 3px;
+    font-size: 16px;
+    border: none;
   }
 }
 
@@ -107,16 +137,13 @@ h1 { font-size: 2em; }
 .current-main-location {
   font-size: 5em;
   font-weight: 300;
-  padding: 73px 10px 0px 10px;
+  padding: 20px 10px 0px 10px;
 }
 
 .current-main-description {
   font-size: 2em;
   font-weight: 300;
-}
-
-.description-control {
-  padding: 84px 0 0 10px;
+  padding: 20px 10px 0 0;
 }
 
 .current-main-icon {
@@ -124,7 +151,7 @@ h1 { font-size: 2em; }
 }
 
 .weather-icon {
-  width: 100px;
+  width: 90px;
   height: auto;
 }
 
@@ -132,7 +159,7 @@ h1 { font-size: 2em; }
   width: 100%;
   border-top: 1px #ACACAC solid;
   height: 100px;
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -153,40 +180,54 @@ h1 { font-size: 2em; }
 /* === Break point: max-width : 1200px ======================================= */
 @media only screen and (max-width : 1236px) {
 
-  .description-control { padding: 5px 10px; }
+  //  .current-main-icon { padding: 10px 10px; }
+   .five-day-flex { width: 299px; }
 
-  .current-main-icon { padding: 10px 10px; }
-
-  .five-day-flex { width: 299px; }
 
 }
 /* === End Break point: max-width : 1200px =================================== */
+
+@media only screen and (max-width : 773px) {
+  .five-day-flex { width: 610px; margin-right: 0; }
+  .current-five-data-box {
+
+    .weather-icon {
+      width: 100px;
+      margin-bottom:10px;
+    }
+
+    h1 {
+      font-size: 3em;
+      display: inline-flex;
+    }
+
+    h3 { font-size: 2em; }
+
+    .current-five-conditions {
+      display: none;
+    }
+  }
+}
+
 /* === Break point: max-width : 767px ======================================== */
 @media only screen and (max-width : 761px) {
 
-  .current-main-location {  padding: 0 10px 0 0; }
-
-  .five-day-flex { width: 610px; }
-
+  .current-main-location { padding: 0 10px 0 0; }
   .footer { position: relative;}
+}
 
-  .five-day-flex { margin-right: 0;}
 
+@media only screen and (max-width : 626px) {
+  .current-main-icon { padding: 10px 10px; }
 }
 /* === End: Break point: max-width : 767px =================================== */
 /* === Break point: max-width : 480px ======================================== */
 @media only screen and (max-width : 480px) {
 
    .logo-type { left: 7%; }
-
    .logo { right: 7%; }
-
    .current-main-temp { font-size: 8.5em; }
-
    .current-main-location { font-size: 4em; }
-
-   .current-main-description { font-size: 1.3em; }
-
    .weather-icon { width: 90px; }
 
 }

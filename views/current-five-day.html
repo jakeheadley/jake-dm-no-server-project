@@ -1,11 +1,16 @@
 <div class="current-main-container">
   <div ng-repeat="days in fiveDays" class="current-main-flex-box five-day-flex">
-    <div class="" style="width: 100%; height: 200px; text-align: center;">
-      <p>{{days.dt_txt}}</p>
-      <p>{{days.main.temp}} </p>
-      <p>{{days.weather[0].description}}</p>
-      <p>{{days.wind.speed}}</p>
+    <div class="current-five-icon">
       <img ng-src="{{days.weather[0].icon}}" class="weather-icon">
+      <div class="current-five-data-box">
+        <h1>{{days.main.temp}} </h1>
+        <h1><span class="current-five-conditions">conditions:</span>{{days.weather[0].description}}</h1>
+        <h3 style="margin-top: 10px;">{{days.wind.speed}}</h3>
+      </div>
+      <!-- <h1>{{days.main.temp}} </h1>
+      <h1 style="font-size:22px; margin-top: 10px; font-weight:600;"><span style="font-size:16px; display:block; margin-top: 5px; font-weight:300;">conditions:</span>{{days.weather[0].description}}</h1>
+      <h3 style="margin-top: 10px;">{{days.wind.speed}}</h3> -->
+
     </div>
   </div>
 </div>
